@@ -7,8 +7,8 @@
 
 namespace Lib {
 
-	const char* WINDOW_CLASS_NAME = "StageEditorTool";
-
+	 extern const char* WINDOW_CLASS_NAME;
+	 extern HWND window_handle;
 	/**
 	*@brief ウィンドウプロシージャ
 	*@param[in] hwnd ウィンドウのハンドル
@@ -63,9 +63,6 @@ namespace Lib {
 			int width,
 			int height
 		);
-
-		/** @briefメッセージループ処理*/
-		static bool ProcessMessage();
 	};
 
 }

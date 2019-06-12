@@ -2,6 +2,9 @@
 #include "Common.h"
 namespace Lib {
 
+	const char* WINDOW_CLASS_NAME = "StageEditorTool";
+
+	HWND window_handle = nullptr;
 	//---------------------------------
 	//ウィンドウプロシージャ
 	LRESULT CALLBACK WinProc(
@@ -12,13 +15,14 @@ namespace Lib {
 	) {
 		switch (msg)
 		{
-		case WM_CLOSE:
+		case WM_DESTROY:
 			PostQuitMessage(0);
 			break;
 
 		case WM_SYSKEYDOWN: // システムキー押下開始時
 		case WM_SYSKEYUP:   // システムキー終了時
-			return 0;
+			break;
+			
 		}
 		return DefWindowProc(hwnd, msg, wparam, lparam);
 	}
@@ -52,10 +56,11 @@ namespace Lib {
 		int height
 	) {
 
-		HINSTANCE h_instance;
+		HINSTANCE h_instance = nullptr;
 		const char* class_name = WINDOW_CLASS_NAME;
 		WNDCLASSEX window_class = {};
 		
+		//デバイスの設定
 		SetUpDevice(
 			h_instance, 
 			class_name, 
@@ -67,13 +72,14 @@ namespace Lib {
 			return false;
 		}
 
-		DWORD dw_exstyle = WS_EX_LEFT;
-		DWORD dw_style = WS_OVERLAPPEDWINDOW;
+		DWORD dw_exstyle = WS_EX_LEFT;//左揃えのプロパティウィンドウ
+		DWORD dw_style = WS_OVERLAPPEDWINDOW;//タイトルと枠あり
 
 		RECT r = { 0, 0, width, height };
 		AdjustWindowRectEx(&r, dw_style, FALSE, dw_exstyle);
-
-		HWND hWnd = CreateWindowEx(
+		
+		//ウィンドウの作成
+		window_handle = CreateWindowEx(
 			dw_exstyle,
 			class_name,
 			title,
@@ -88,27 +94,11 @@ namespace Lib {
 			nullptr
 		);
 
-		if (hWnd == nullptr) {
+		if (window_handle== nullptr) {
 			ErrorMsg("ウィンドウの作成に失敗しました。");
 			return false;
 		}
-		ShowWindow(hWnd, SW_SHOW);
-		return true;
-	}
-
-	//----------------------------------
-	//メッセージループ処理
-	bool Window::ProcessMessage() {
-		
-		MSG msg;
-		//　メッセージが０では無い間
-		while (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE)) {
-			TranslateMessage(&msg);
-			DispatchMessage(&msg);
-			if (msg.message == WM_QUIT) {
-				return false;
-			}
-		}
+		ShowWindow(window_handle, SW_SHOW);
 		return true;
 	}
 }

@@ -122,6 +122,10 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="DirectX9Device.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="Lib.cpp">
       <SubType>
       </SubType>

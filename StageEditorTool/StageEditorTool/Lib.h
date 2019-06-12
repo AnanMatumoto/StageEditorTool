@@ -1,5 +1,8 @@
 ﻿#pragma once
 
+#include "DirectX9Device.h"
+#include "Window.h"
+
 /**
 *@namespace ライブラリ
 * ウィンドウ作成から@n
@@ -15,10 +18,14 @@ namespace Lib {
 	bool AppInit(
 		int width,
 		int height,
-		const char* title
+		const char* title,
+		bool is_full_screen
 	);
 
 	/** @brief アプリケーションの終了処理 */
 	void AppEnd();
 
+	/** @biref メッセージループ処理 */
+	bool ProcessMessage();
 }
+
