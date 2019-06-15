@@ -25,6 +25,15 @@ namespace Lib {
 	/** @brief アプリケーションの終了処理 */
 	void AppEnd();
 
+
+	const LPDIRECT3D9 GetInterface(){
+	  return DirectX9Device::GetInstance()->GetInterface();	
+	}
+
+	const LPDIRECT3DDEVICE9 GetDevice(){
+		return DirectX9Device::GetInstance()->GetDevice();
+	}
+
 	/** @biref メッセージループ処理 */
 	bool ProcessMessage();
 }

@@ -134,6 +134,14 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="ResourceNameLoader.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="Window.cpp">
       <SubType>
       </SubType>
@@ -149,6 +157,22 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="Lib.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="ResourceID.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="ResourceNameLoader.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Vec.h">
       <SubType>
       </SubType>
     </ClInclude>

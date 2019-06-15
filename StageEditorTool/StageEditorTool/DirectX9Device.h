@@ -47,13 +47,13 @@ namespace Lib {
 		void DrawEnd();
 
 		/** @brief DirectX9インターフェースゲッター */
-		LPDIRECT3D9* GetInterface() {
-			return &m_interface;
+		const LPDIRECT3D9 GetInterface() {
+			return m_interface;
 		}
 
 		/** @brief DirectX9デバイスゲッター */
-		LPDIRECT3DDEVICE9* GetDevice() {
-			return &m_device;
+		const LPDIRECT3DDEVICE9 GetDevice() {
+			return m_device;
 		}
 
 		/** @brief インターフェース解放処理 */
