@@ -2,7 +2,6 @@
 
 #include "Lib.h"
 #include "Vec.h"
-#include "ResourceID.h"
 #include <string>
 
 //===================================
@@ -28,7 +27,7 @@ namespace Lib {
 		*@brief コンストラクタ
 		*@param[in]id リソース識別ID		
 		*/
-		Texture(ResourceID id);
+		Texture(std::string file_naem);
 
 		/**
 		*@brief コピーコンストラクタ

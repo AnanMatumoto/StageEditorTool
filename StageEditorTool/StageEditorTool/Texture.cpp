@@ -7,11 +7,9 @@ namespace Lib {
 
 	//--------------------------------
 	// コンストラクタ
-	Texture::Texture(ResourceID id) {
+	Texture::Texture(std::string file_name) {
 
-		std::string tex_name= ResourceNameLoader::GetInstance()->GetName(id);
-
-		auto it = tex_list.find(tex_name);
+		auto it = tex_list.find(file_name);
 
 		if (it != tex_list.end()) {//既にリストに存在する場合
 			
@@ -25,14 +23,14 @@ namespace Lib {
 		else {//リストに存在しない場合
 			D3DXIMAGE_INFO tex_info;
 			if (SUCCEEDED(D3DXGetImageInfoFromFile(
-				tex_name.c_str(),
+				file_name.c_str(),
 				&tex_info))
 			) {
 				size.x = (float)tex_info.Width;
 				size.y = (float)tex_info.Height;
 				D3DXCreateTextureFromFileEx(
 					Lib::GetDevice(),
-					tex_name.c_str(),
+					file_name.c_str(),
 					0, 0, 0, 0,		   // 画像ファイルから取得
 					D3DFMT_A8R8G8B8,
 					D3DPOOL_MANAGED,
@@ -43,7 +41,7 @@ namespace Lib {
 					nullptr,
 					&texture
 				);
-				tex_list.emplace(tex_name.c_str(), *this);
+				tex_list.emplace(file_name.c_str(), *this);
 			}
 		}
 	}
