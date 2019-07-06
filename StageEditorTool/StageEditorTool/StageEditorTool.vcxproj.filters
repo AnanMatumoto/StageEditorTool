@@ -15,56 +15,59 @@
     <Filter Include="ソース ファイル\Common">
       <UniqueIdentifier>{a803f62a-0108-4353-95f3-e2980a46c3bd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Lib\ResourceData">
-      <UniqueIdentifier>{adc1a912-d3ca-40e2-901b-16d08e4be389}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
+    <ClCompile Include="Source\Drawer.cpp">
+      <Filter>ソース ファイル\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Window.cpp">
+    <ClCompile Include="Source\Lib\Texture\Texture.cpp">
       <Filter>ソース ファイル\Lib</Filter>
     </ClCompile>
-    <ClCompile Include="Lib.cpp">
+    <ClCompile Include="Source\Lib\Texture\TexutreManager.cpp">
       <Filter>ソース ファイル\Lib</Filter>
     </ClCompile>
-    <ClCompile Include="Common.cpp">
+    <ClCompile Include="Source\Lib\DirectX9\DirectX9Device.cpp">
+      <Filter>ソース ファイル\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Lib\Lib.cpp">
+      <Filter>ソース ファイル\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Lib\Window\Window.cpp">
+      <Filter>ソース ファイル\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Common\Common.cpp">
       <Filter>ソース ファイル\Common</Filter>
-    </ClCompile>
-    <ClCompile Include="DirectX9Device.cpp">
-      <Filter>ソース ファイル\Lib</Filter>
-    </ClCompile>
-    <ClCompile Include="ResourceNameLoader.cpp">
-      <Filter>ソース ファイル\Lib\ResourceData</Filter>
-    </ClCompile>
-    <ClCompile Include="Texture.cpp">
-      <Filter>ソース ファイル\Lib\ResourceData</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Window.h">
+    <ClInclude Include="Source\Drawer.h">
       <Filter>ソース ファイル\Lib</Filter>
     </ClInclude>
-    <ClInclude Include="Lib.h">
+    <ClInclude Include="Source\Lib\Texture\Texture.h">
       <Filter>ソース ファイル\Lib</Filter>
     </ClInclude>
-    <ClInclude Include="Common.h">
+    <ClInclude Include="Source\Lib\Texture\TextureManager.h">
+      <Filter>ソース ファイル\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Lib\DirectX9\DirectX9Device.h">
+      <Filter>ソース ファイル\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Lib\Lib.h">
+      <Filter>ソース ファイル\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Lib\Window\Window.h">
+      <Filter>ソース ファイル\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Common\Vertex.h">
+      <Filter>ソース ファイル\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Common\Vec.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
-    <ClInclude Include="DirectX9Device.h">
-      <Filter>ソース ファイル\Lib</Filter>
-    </ClInclude>
-    <ClInclude Include="ResourceNameLoader.h">
-      <Filter>ソース ファイル\Lib\ResourceData</Filter>
-    </ClInclude>
-    <ClInclude Include="ResourceID.h">
-      <Filter>ソース ファイル\Lib\ResourceData</Filter>
-    </ClInclude>
-    <ClInclude Include="Texture.h">
-      <Filter>ソース ファイル\Lib\ResourceData</Filter>
-    </ClInclude>
-    <ClInclude Include="Vec.h">
+    <ClInclude Include="Source\Common\Common.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
   </ItemGroup>

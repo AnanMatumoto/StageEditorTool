@@ -118,65 +118,73 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Common.cpp">
+    <ClCompile Include="Source\Common\Common.cpp">
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="DirectX9Device.cpp">
+    <ClCompile Include="Source\Lib\DirectX9\DirectX9Device.cpp">
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="Lib.cpp">
+    <ClCompile Include="Source\Drawer.cpp">
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="Main.cpp">
+    <ClCompile Include="Source\Lib\Lib.cpp">
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="ResourceNameLoader.cpp">
+    <ClCompile Include="Source\Main.cpp">
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="Texture.cpp">
+    <ClCompile Include="Source\Lib\Texture\Texture.cpp">
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="Window.cpp">
+    <ClCompile Include="Source\Lib\Texture\TexutreManager.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Source\Lib\Window\Window.cpp">
       <SubType>
       </SubType>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Common.h">
+    <ClInclude Include="Source\Common\Common.h">
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="DirectX9Device.h">
+    <ClInclude Include="Source\Lib\DirectX9\DirectX9Device.h">
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="Lib.h">
+    <ClInclude Include="Source\Drawer.h">
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="ResourceID.h">
+    <ClInclude Include="Source\Lib\Lib.h">
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="ResourceNameLoader.h">
+    <ClInclude Include="Source\Lib\Texture\Texture.h">
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="Texture.h">
+    <ClInclude Include="Source\Lib\Texture\TextureManager.h">
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="Vec.h">
+    <ClInclude Include="Source\Common\Vec.h">
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="Window.h">
+    <ClInclude Include="Source\Common\Vertex.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Source\Lib\Window\Window.h">
       <SubType>
       </SubType>
     </ClInclude>
