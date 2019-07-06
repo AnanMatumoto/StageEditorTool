@@ -70,5 +70,6 @@
     <ClInclude Include="Source\Common\Common.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Lib\Texture\ResourceName\LespirceNameLoader.h" />
   </ItemGroup>
 </Project>
