@@ -22,15 +22,6 @@ namespace Lib {
 			break;
 
 
-		//マウスキー押下時処理
-		case WM_LBUTTONDOWN:
-		case WM_RBUTTONDOWN:
-
-		//マウスキー離処理
-		case WM_RBUTTONUP:
-		case WM_LBUTTONUP:
-			
-
 		case WM_SYSKEYDOWN: // システムキー押下開始時
 		case WM_SYSKEYUP:   // システムキー終了時
 			break;
