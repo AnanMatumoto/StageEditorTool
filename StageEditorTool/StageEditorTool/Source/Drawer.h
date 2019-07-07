@@ -8,7 +8,9 @@ class Drawer {
 
 public:
 
-	Drawer(
+	Drawer(){}
+
+	void Draw2D(
 		std::string tex_name,
 		float pos_x,
 		float pos_y,

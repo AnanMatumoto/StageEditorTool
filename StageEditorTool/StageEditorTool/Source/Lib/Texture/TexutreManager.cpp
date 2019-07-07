@@ -11,7 +11,8 @@ namespace Lib {
 			return true;
 		}
 		
-		Texture* texture = new Texture();
+		
+		Texture* texture= new Texture();
 		texture->Create(tex_name);
 		if (texture == nullptr) {
 			return false;

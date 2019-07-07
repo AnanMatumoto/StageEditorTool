@@ -9,6 +9,8 @@ namespace Lib {
 
 		D3DXIMAGE_INFO tex_info;
 		
+		DirectX9Device* device = DirectX9Device::GetInstance();
+
 		if (SUCCEEDED(D3DXGetImageInfoFromFile(
 			file_name.c_str(),
 			&tex_info))
@@ -16,7 +18,7 @@ namespace Lib {
 			size.x = (float)tex_info.Width;
 			size.y = (float)tex_info.Height;
 			D3DXCreateTextureFromFileEx(
-				Lib::DirectX9Device::GetInstance()->GetDevice(),
+				device->GetDevice(),
 				file_name.c_str(),
 				0, 0, 0, 0,		   // 画像ファイルから取得
 				D3DFMT_A8R8G8B8,
@@ -31,6 +33,7 @@ namespace Lib {
 			//作成完了
 			return this;
 		}
+
 		return nullptr;
 	}
 

@@ -21,8 +21,6 @@ namespace Lib {
 		if (DirectX9Device::GetInstance()->Init(width,height)==false) {
 			return false;
 		}
-
-
 		return true;
 	}
 
@@ -50,5 +48,9 @@ namespace Lib {
 
 	LPDIRECT3DDEVICE9 GetDevice() {
 		return Lib::DirectX9Device::GetInstance()->GetDevice();
+	}
+
+	LPDIRECT3D9 GetInterface() {
+		return Lib::DirectX9Device::GetInstance()->GetInterface();
 	}
 };

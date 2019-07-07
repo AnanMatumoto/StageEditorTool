@@ -31,5 +31,6 @@ namespace Lib {
 
 	LPDIRECT3DDEVICE9 GetDevice();
 
+	LPDIRECT3D9 GetInterface();
 }
 

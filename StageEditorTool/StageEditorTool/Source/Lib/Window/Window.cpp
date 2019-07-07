@@ -1,11 +1,12 @@
 ﻿#include "Window.h"
 #include "../../Common/Common.h"
+#include "../../Common/Vec.h"
 
 namespace Lib {
 
 	const char* WINDOW_CLASS_NAME = "StageEditorTool";
-
 	HWND window_handle = nullptr;
+
 	//---------------------------------
 	//ウィンドウプロシージャ
 	LRESULT CALLBACK WinProc(
@@ -20,10 +21,22 @@ namespace Lib {
 			PostQuitMessage(0);
 			break;
 
+
+		//マウスキー押下時処理
+		case WM_LBUTTONDOWN:
+		case WM_RBUTTONDOWN:
+
+		//マウスキー離処理
+		case WM_RBUTTONUP:
+		case WM_LBUTTONUP:
+			
+
 		case WM_SYSKEYDOWN: // システムキー押下開始時
 		case WM_SYSKEYUP:   // システムキー終了時
 			break;
-			
+
+
+
 		}
 		return DefWindowProc(hwnd, msg, wparam, lparam);
 	}
