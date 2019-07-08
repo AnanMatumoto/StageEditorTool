@@ -46,11 +46,4 @@ namespace Lib {
 		return true;
 	}
 
-	LPDIRECT3DDEVICE9 GetDevice() {
-		return Lib::DirectX9Device::GetInstance()->GetDevice();
-	}
-
-	LPDIRECT3D9 GetInterface() {
-		return Lib::DirectX9Device::GetInstance()->GetInterface();
-	}
 };

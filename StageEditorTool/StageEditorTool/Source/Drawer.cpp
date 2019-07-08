@@ -16,7 +16,7 @@
  ) {
 
 	
-	Lib::Texture* texture = Lib::TextureManager::GetInstance()->Find(tex_name);
+	auto texture = Lib::TextureManager::GetInstance()->Find(tex_name);
 	if( texture == nullptr){
 		return;
 	}
@@ -38,4 +38,4 @@
 	device->GetDevice()->SetTexture(0, *texture);
 	device->GetDevice()->SetFVF(VERTEX_FVF);
 	device->GetDevice()->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, vtx, sizeof(Vertex));
- }
+ }  

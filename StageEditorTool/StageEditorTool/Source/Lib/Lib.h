@@ -28,9 +28,5 @@ namespace Lib {
 	/** @biref メッセージループ処理 */
 	bool ProcessMessage();
 
-
-	LPDIRECT3DDEVICE9 GetDevice();
-
-	LPDIRECT3D9 GetInterface();
 }
 
