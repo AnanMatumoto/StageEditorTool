@@ -44,6 +44,21 @@
     <ClCompile Include="Source\Lib\Input\Input.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Object\SpriteObject.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object\CollisionObject.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object\MouseObject.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Collision\CollisionManager.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object\MapObject.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Drawer.h">
@@ -76,5 +91,17 @@
     <ClInclude Include="Source\Lib\Texture\ResourceName\LespirceNameLoader.h" />
     <ClInclude Include="Source\Lib\Input\Input.h" />
     <ClInclude Include="Source\Lib\Input\InputDefinition.h" />
+    <ClInclude Include="Source\Object\Object.h" />
+    <ClInclude Include="Source\Object\Parameter\CollisionDefinition.h" />
+    <ClInclude Include="Source\Object\Parameter\CollisionObjectParameter.h" />
+    <ClInclude Include="Source\Object\Parameter\CreateParameter.h" />
+    <ClInclude Include="Source\Object\Parameter\MapObjectParameter.h" />
+    <ClInclude Include="Source\Object\Parameter\SpriteObjectParameter.h" />
+    <ClInclude Include="Source\Object\SpriteObject.h" />
+    <ClInclude Include="Source\Object\MapObject.h" />
+    <ClInclude Include="Source\Object\CollisionObject.h" />
+    <ClInclude Include="Source\Object\MouseObject.h" />
+    <ClInclude Include="Source\Collision\CollisionManager.h" />
+    <ClInclude Include="Source\Collision\CollisionData.h" />
   </ItemGroup>
 </Project>

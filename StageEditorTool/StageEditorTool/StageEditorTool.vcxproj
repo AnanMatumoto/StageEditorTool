@@ -158,8 +158,32 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="Source\Collision\CollisionManager.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Source\Object\CollisionObject.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Source\Object\MapObject.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Source\Object\MouseObject.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Source\Object\SpriteObject.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Collision\CollisionData.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="Source\Common\Common.h">
       <SubType>
       </SubType>
@@ -205,6 +229,47 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="Source\Lib\Window\Window.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Source\Collision\CollisionManager.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Source\Object\CollisionObject.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Source\Object\MapObject.h" />
+    <ClInclude Include="Source\Object\MouseObject.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Source\Object\Object.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Source\Object\Parameter\CollisionDefinition.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Source\Object\Parameter\CollisionObjectParameter.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Source\Object\Parameter\CreateParameter.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Source\Object\Parameter\MapObjectParameter.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Source\Object\Parameter\SpriteObjectParameter.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Source\Object\SpriteObject.h">
       <SubType>
       </SubType>
     </ClInclude>
