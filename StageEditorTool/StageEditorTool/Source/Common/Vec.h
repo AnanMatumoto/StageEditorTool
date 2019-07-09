@@ -82,7 +82,6 @@ struct Vec2 : public t_Float2 {
 		return false;
 	}
 
-
 };
 
 typedef Vec2 Size;
