@@ -46,4 +46,8 @@ namespace Lib {
 		return true;
 	}
 
+	void SetMovePoint(Vec2 &point) {
+		
+	}
 };
+

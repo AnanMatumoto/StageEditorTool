@@ -2,6 +2,7 @@
 
 #include "DirectX9/DirectX9Device.h"
 #include "Window/Window.h"
+#include "../Common/Vec.h"
 
 /**
 *@namespace ライブラリ
@@ -27,6 +28,10 @@ namespace Lib {
 
 	/** @biref メッセージループ処理 */
 	bool ProcessMessage();
+
+	void SetMovePoint(Vec2 &point);
+
+	void SetClickPoint(Vec2 &point);
 
 }
 
