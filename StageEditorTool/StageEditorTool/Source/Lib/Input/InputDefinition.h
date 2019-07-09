@@ -1,17 +1,18 @@
 ﻿#pragma once
 #include <Windows.h>
 
-enum MOUSE_KEY {
+enum MouseKey {
 	LEFT   = VK_LBUTTON,
 	RIGHT  = VK_RBUTTON,
 	CENTER = VK_MBUTTON
 };
 
-enum  FLAME{
+enum  Flame{
 
 	KEY_CUR = 0,
 	KEY_PRE,
 };
+
 
 const int INPUT_FLAME = 2;
 const int KEY_NUM     = 3;
