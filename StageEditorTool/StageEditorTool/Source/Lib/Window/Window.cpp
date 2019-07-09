@@ -17,7 +17,6 @@ namespace Lib {
 		WPARAM wparam,
 		LPARAM lparam
 	) {
-		POINT point[MAX_POINT_STATE];
 		auto window = Window::GetInstance();
 		switch (msg)
 		{
