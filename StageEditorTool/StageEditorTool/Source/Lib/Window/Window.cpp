@@ -2,6 +2,8 @@
 #include "../../Common/Common.h"
 #include "../../Common/Vec.h"
 
+
+
 namespace Lib {
 
 	const char* WINDOW_CLASS_NAME = "StageEditorTool";
@@ -15,17 +17,17 @@ namespace Lib {
 		WPARAM wparam,
 		LPARAM lparam
 	) {
+		POINT point[MAX_POINT_STATE];
+		auto window = Window::GetInstance();
 		switch (msg)
 		{
 		case WM_DESTROY:
 			PostQuitMessage(0);
 			break;
 
-
 		case WM_SYSKEYDOWN: // システムキー押下開始時
 		case WM_SYSKEYUP:   // システムキー終了時
 			break;
-
 
 
 		}
