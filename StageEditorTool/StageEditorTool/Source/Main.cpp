@@ -25,11 +25,16 @@ int WINAPI WinMain(
 
 	while (Lib::ProcessMessage()){
 
-		input->Uodate();
+		//input->Uodate();
 
-		if (input->OnMouseDown(MOUSE_KEY::RIGHT)== true) {
+	/*	if (input->OnMouseDown(MouseKey::RIGHT)== true) {
 			MessageBox(0, "クリックされた", nullptr, MB_OK);
 		}
+
+		Vec2 vec =input->GetClickPoint(MouseKey::LEFT);
+		if (vec.x > 0) {
+			MessageBox(0, "座標取得", nullptr, MB_OK);
+		}*/
 
 		Lib::DirectX9Device::GetInstance()->DrawStart();
 		drawer->Draw2D("./Res/object_64x64.png", 500, 500);
