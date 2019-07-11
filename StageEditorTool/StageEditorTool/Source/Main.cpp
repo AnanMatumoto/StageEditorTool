@@ -1,8 +1,7 @@
 ﻿#include "Lib/Lib.h"
 #include "Lib/Texture/TextureManager.h"
+#include "Object/ObjectManager.h"
 #include "Lib/Input/Input.h"
-#include "Lib/Input/InputDefinition.h"
-#include "Drawer.h"
 #include <Windows.h>
 #include <string>
 
@@ -18,31 +17,18 @@ int WINAPI WinMain(
 		return -1;
 	}
 
-	Lib::Input* input = new Lib::Input();;
 	Lib::TextureManager::GetInstance()->Load("./Res/object_64x64.png");
-
-	Drawer* drawer = new Drawer();
+	ObjectManager::GetInstance()->LoadData("./Res/test.csv");
+	ObjectManager::GetInstance()->Init();
 
 	while (Lib::ProcessMessage()){
 
-		//input->Uodate();
-
-	/*	if (input->OnMouseDown(MouseKey::RIGHT)== true) {
-			MessageBox(0, "クリックされた", nullptr, MB_OK);
-		}
-
-		Vec2 vec =input->GetClickPoint(MouseKey::LEFT);
-		if (vec.x > 0) {
-			MessageBox(0, "座標取得", nullptr, MB_OK);
-		}*/
+		Lib::Input::GetInstance()->Uodate();
+		ObjectManager::GetInstance()->Update();
 
 		Lib::DirectX9Device::GetInstance()->DrawStart();
-		drawer->Draw2D("./Res/object_64x64.png", 500, 500);
-		
-		
+		ObjectManager::GetInstance()->Draw();
 		Lib::DirectX9Device::GetInstance()->DrawEnd();
-
-	
 	}
 	Lib::AppEnd();
 	return 0;

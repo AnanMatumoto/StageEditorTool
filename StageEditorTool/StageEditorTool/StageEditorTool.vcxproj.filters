@@ -59,6 +59,15 @@
     <ClCompile Include="Source\Object\MapObject.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Object\ObjectManager.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Factory\ObjectFactory.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\File\File.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Drawer.h">
@@ -92,7 +101,6 @@
     <ClInclude Include="Source\Lib\Input\Input.h" />
     <ClInclude Include="Source\Lib\Input\InputDefinition.h" />
     <ClInclude Include="Source\Object\Object.h" />
-    <ClInclude Include="Source\Object\Parameter\CollisionDefinition.h" />
     <ClInclude Include="Source\Object\Parameter\CollisionObjectParameter.h" />
     <ClInclude Include="Source\Object\Parameter\CreateParameter.h" />
     <ClInclude Include="Source\Object\Parameter\MapObjectParameter.h" />
@@ -103,5 +111,10 @@
     <ClInclude Include="Source\Object\MouseObject.h" />
     <ClInclude Include="Source\Collision\CollisionManager.h" />
     <ClInclude Include="Source\Collision\CollisionData.h" />
+    <ClInclude Include="Source\Object\ObjectManager.h" />
+    <ClInclude Include="Source\Factory\ObjectFactory.h" />
+    <ClInclude Include="Source\File\File.h" />
+    <ClInclude Include="Source\Collision\CollisionDefinition.h" />
+    <ClInclude Include="Source\File\DataDefinition.h" />
   </ItemGroup>
 </Project>
