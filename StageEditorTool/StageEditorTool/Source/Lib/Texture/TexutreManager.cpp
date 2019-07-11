@@ -33,6 +33,17 @@ namespace Lib {
 		return nullptr;
 	}
 
+	Size TextureManager::GetSize(std::string tex_name) {
+		
+		Size size(0, 0);
+		auto itr = m_texture_list.find(tex_name);
+		if (itr != m_texture_list.end()) {
+		    size = itr->second->GetSize();
+			return size;
+		}
+		return size;
+	}
+
 	void TextureManager::Release(std::string tex_name) {
 		
 		//リスト内に指定された画像が無い場合

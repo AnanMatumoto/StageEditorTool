@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include <map>
+#include <unordered_map>
 #include <string>
 #include "Texture.h"
 
@@ -32,6 +32,9 @@ namespace Lib {
 		*/
 		Texture* Find(std::string tex_name);
 
+
+		Size GetSize(std::string tex_name);
+
 		/**
 		*@brief テクスチャー解放関数
 		*@param[in]tex_name　画像名
@@ -43,7 +46,7 @@ namespace Lib {
 		*/
 		void AllRelease();
 	private:
-		std::map<std::string, Texture*>m_texture_list; //<! 画像リスト
+		std::unordered_map<std::string, Texture*>m_texture_list; //<! 画像リスト
 	};
 
 }
