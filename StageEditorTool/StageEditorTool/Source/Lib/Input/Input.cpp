@@ -1,11 +1,9 @@
 ﻿#include "Input.h"
-#include <Windows.h>
-
+#include "../Window/Window.h"
 namespace Lib {
 
-
 	void Input::Uodate() {
-		GetCursorPos(&m_move_point);
+		
 		memcpy(m_key[KEY_PRE], m_key[KEY_CUR], sizeof(*m_key));
 		GetKeyboardState(m_key[KEY_CUR]);
 	}
@@ -27,7 +25,15 @@ namespace Lib {
 	bool Input::CheckHitKey(const BYTE key) {
 		return ((key & 0x80) != 0);
 	}
-
+	 Vec2 Input::GetMovePoint() {
+		GetCursorPos(&m_move_point);
+		ScreenToClient(window_handle, &m_move_point);
+		Vec2 vec = {
+		 (float)m_move_point.x,
+		 (float)m_move_point.y
+		};
+		return vec;
+	}
 	Vec2 Input::GetClickPoint(int key) {
 
 		Vec2 vec = { 0,0 };
