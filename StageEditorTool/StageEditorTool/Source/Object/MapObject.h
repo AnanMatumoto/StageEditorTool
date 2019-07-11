@@ -1,15 +1,14 @@
 ﻿#pragma once
 
-#include "SpriteObject.h"
 #include "CollisionObject.h"
-#include "../Object/Parameter/CollisionDefinition.h"
 #include "../Collision/CollisionData.h"
+#include "Parameter/MapObjectParameter.h"
 
 class MapObject : public CollisionObject{
 
 public:
 
-	MapObject(CollisionObjectParameter& data);
+	MapObject(MapObjectParameter& data);
 
 	MapObject(CollisionType type,
 		std::string sprite_name,
@@ -24,11 +23,14 @@ public:
 	{
 	}
 
-	Collider GetCollider()override {
-		return m_collider;
-	}
+	void Init()override;
 
-	void Reflection(CollisionObject* obj)override;
+	void Update()override;
+
+	void SetCollider(RectCollider& collider)override {
+		 collider = m_collider;
+	}
+    void Reflection(CollisionObject* obj)override;
 
 private:
 	RectCollider m_collider;

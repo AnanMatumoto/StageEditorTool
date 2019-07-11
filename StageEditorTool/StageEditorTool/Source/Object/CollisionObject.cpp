@@ -14,3 +14,4 @@ CollisionObject::CollisionObject(
 	m_type(data.type) 
 {
 }
+

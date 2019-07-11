@@ -17,7 +17,7 @@ struct Collider {
 	Vec3 pos;
 };
 
-struct  PointCollider:public Collider
+struct PointCollider:public Collider
 {
 	PointCollider()
 	{
@@ -27,6 +27,7 @@ struct  PointCollider:public Collider
 	:Collider(x, y, z) 
 	{
 	}
+
 
 };
 
@@ -42,10 +43,11 @@ struct RectCollider:public Collider
 		float z,
 		float width,
 		float height
-	):Collider(x, y, z),
-	 size(width, height)
+	) :Collider(x, y, z),
+	   size(width, height)
 	{
 	}
 
-	Size size;
+
+	Vec2 size;
 };

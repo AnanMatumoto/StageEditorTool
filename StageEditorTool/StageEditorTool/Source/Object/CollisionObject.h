@@ -2,6 +2,7 @@
 
 #include "SpriteObject.h"
 #include "Parameter/CollisionObjectParameter.h"
+#include "../Collision/CollisionDefinition.h"
 #include "../Collision/CollisionData.h"
 
 class CollisionObject :public SpriteObject {
@@ -24,17 +25,17 @@ public:
 		return m_type;
 	}
 
-	virtual Collider GetCollider(){
-		return m_collider;
-	};
+	virtual void SetCollider(RectCollider& collider){
+	}
+
+	virtual void SetCollider(PointCollider& collider){
+	}
 
 	virtual void Reflection(CollisionObject* obj) = 0;
 
 protected:
-	
 	CollisionType m_type;
 
 private:
-
 	Collider m_collider;
 };

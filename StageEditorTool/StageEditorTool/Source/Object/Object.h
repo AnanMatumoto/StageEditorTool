@@ -11,10 +11,12 @@ public:
 		float rot = 0.f, float scale_x = 1.f, float scale_y = 1.f
 	) :m_pos(x,y,z),
 	   m_rot(rot),
-	   m_size(scale_x, scale_y),
+	   m_scale(scale_x, scale_y),
 	   m_is_delete(false)
 	{
 	}
+
+	virtual void Init() = 0;
 
 	virtual void Update() = 0;
 
@@ -27,7 +29,7 @@ public:
 protected:
 
 	Vec3  m_pos;
-	Size  m_size;
+	Vec2  m_scale;
 	float m_rot;
 	bool  m_is_delete;
 

@@ -1,5 +1,6 @@
 ﻿#include "MouseObject.h"
 #include "../Lib/Input/Input.h"
+#include "../Collision/CollisionManager.h"
 
 MouseObject::MouseObject(CollisionObjectParameter& data)
 :CollisionObject(
@@ -12,12 +13,26 @@ MouseObject::MouseObject(CollisionObjectParameter& data)
 	data.scale_x,
 	data.scale_y
 ){
+}
 
+void MouseObject::Init() {
+
+	CollisionManager::GetInstance()->Entry(this);
+	
+}
+
+void MouseObject::Update() {
+
+	auto input =Lib::Input::GetInstance();
+	
+	m_pos.x = input->GetMovePoint().x;
+	m_pos.y = input->GetMovePoint().y;
 	m_collider = PointCollider(
 		m_pos.x,
 		m_pos.y,
 		m_pos.z
 	);
+	
 }
 
 void MouseObject::Reflection(CollisionObject* obj) {

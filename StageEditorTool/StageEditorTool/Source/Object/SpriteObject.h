@@ -24,6 +24,8 @@ public:
 	{
 	}
 
+	virtual void Init()override;
+
 	virtual void Update()override;
 
 	virtual void Draw()override;
@@ -32,5 +34,6 @@ public:
 protected:
 
 	std::string m_sprite_name;
+	Size    m_size;
 	Drawer* m_drawer;
 };

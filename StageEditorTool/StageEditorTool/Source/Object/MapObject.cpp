@@ -1,8 +1,8 @@
 ﻿#include "MapObject.h"
+#include "../Collision/CollisionManager.h"
+#include "../Lib/Texture/TextureManager.h"
 
-
-
-MapObject::MapObject(CollisionObjectParameter& data)
+MapObject::MapObject(MapObjectParameter& data)
 :CollisionObject(
 	data.type,
 	data.sprite_name,
@@ -13,7 +13,12 @@ MapObject::MapObject(CollisionObjectParameter& data)
 	data.scale_x,
 	data.scale_x
 ){
-	
+}
+
+void MapObject::Init() {
+
+	CollisionManager::GetInstance()->Entry(this);
+	m_size = Lib::TextureManager::GetInstance()->GetSize(m_sprite_name);
 	m_collider = RectCollider(
 		m_pos.x,
 		m_pos.y,
@@ -23,8 +28,17 @@ MapObject::MapObject(CollisionObjectParameter& data)
 	);
 }
 
+void MapObject::Update() {
+
+	
+
+}
+
 void MapObject::Reflection(CollisionObject* obj){
 
-	m_pos = obj->GetCollider().pos;
+	PointCollider point;
+	obj->SetCollider(point);
 
+	m_pos.x = point.pos.x;
+	m_pos.y = point.pos.y;
 }

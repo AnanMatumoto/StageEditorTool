@@ -1,5 +1,6 @@
 ﻿#include "SpriteObject.h"
 #include "../Drawer.h"
+#include "../Lib/Texture/TextureManager.h"
 
 SpriteObject::SpriteObject(SpriteObjectParameter&data
 ):Object(data.pos.x,
@@ -11,11 +12,13 @@ SpriteObject::SpriteObject(SpriteObjectParameter&data
 		m_sprite_name(data.sprite_name)
 {
 	m_drawer = new Drawer();
+	
 }
 
+void SpriteObject::Init() {
+}
 
 void SpriteObject::Update() {
-
 }
 
 void SpriteObject::Draw() {
