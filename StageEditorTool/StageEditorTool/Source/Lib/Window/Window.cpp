@@ -17,7 +17,6 @@ namespace Lib {
 		WPARAM wparam,
 		LPARAM lparam
 	) {
-		auto window = Window::GetInstance();
 		switch (msg)
 		{
 		case WM_DESTROY:
