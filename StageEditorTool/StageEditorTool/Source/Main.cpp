@@ -30,6 +30,7 @@ int WINAPI WinMain(
 		ObjectManager::GetInstance()->Draw();
 		Lib::DirectX9Device::GetInstance()->DrawEnd();
 	}
+	ObjectManager::GetInstance()->AllDelete();
 	Lib::AppEnd();
 	return 0;
 }
