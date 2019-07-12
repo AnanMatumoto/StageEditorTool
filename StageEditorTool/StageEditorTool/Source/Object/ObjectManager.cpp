@@ -61,7 +61,9 @@ void ObjectManager::Update() {
 		obj->Update();
 	}
 
-	CollisionManager::GetInstance()->Update();
+	//!!
+	//ここのコメントを外すとエラーになます。
+	//CollisionManager::GetInstance()->Update();
 	
 }
 
