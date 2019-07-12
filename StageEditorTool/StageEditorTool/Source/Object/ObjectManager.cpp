@@ -36,7 +36,6 @@ void ObjectManager::AddObject() {
 
 void ObjectManager::Init() {
 
-	
 	for (auto obj : m_object_list) {
 
 		if (obj == nullptr) {
@@ -63,6 +62,7 @@ void ObjectManager::Update() {
 	}
 
 	CollisionManager::GetInstance()->Update();
+	
 }
 
 void ObjectManager::Draw() {
@@ -77,4 +77,32 @@ void ObjectManager::Draw() {
 		}
 		obj->Draw();
 	}
+
+}
+
+void ObjectManager::Delete() {
+
+	
+	for (auto itr = m_object_list.begin(); itr != m_object_list.end();) {
+		
+		if ((*itr)->IsDelete() == true) {
+			Object* obj = *itr;
+			if (obj != nullptr) {
+				delete obj;
+			
+				itr = m_object_list.erase(itr);
+			}
+		}
+	}
+	
+}
+
+void ObjectManager::AllDelete() {
+
+	for (auto obj : m_object_list) {
+		if (obj != nullptr) {
+			delete obj;
+		}
+	}
+	m_object_list.clear();
 }

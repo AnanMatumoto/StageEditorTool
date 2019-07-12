@@ -24,6 +24,8 @@ public:
 	{
 	}
 
+	~SpriteObject()override;
+
 	virtual void Init()override;
 
 	virtual void Update()override;

@@ -21,6 +21,10 @@ public:
 	{
 	}
 
+	~CollisionObject()override {
+
+	}
+
 	const CollisionType GetColliisionType()const{
 		return m_type;
 	}

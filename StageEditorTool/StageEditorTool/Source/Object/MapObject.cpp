@@ -18,6 +18,7 @@ MapObject::MapObject(MapObjectParameter& data)
 void MapObject::Init() {
 
 	CollisionManager::GetInstance()->Entry(this);
+
 	m_size = Lib::TextureManager::GetInstance()->GetSize(m_sprite_name);
 	m_collider = RectCollider(
 		m_pos.x,

@@ -24,6 +24,9 @@ public:
 
 	void Draw();
 
+	void Delete();
+
+	void AllDelete();
 private:
 
 	std::vector<Object*>m_object_list;

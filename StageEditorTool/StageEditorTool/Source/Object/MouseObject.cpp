@@ -18,23 +18,15 @@ MouseObject::MouseObject(CollisionObjectParameter& data)
 void MouseObject::Init() {
 
 	CollisionManager::GetInstance()->Entry(this);
-	
 }
 
 void MouseObject::Update() {
 
-	auto input =Lib::Input::GetInstance();
-	
-	m_pos.x = input->GetMovePoint().x;
-	m_pos.y = input->GetMovePoint().y;
-	m_collider = PointCollider(
-		m_pos.x,
-		m_pos.y,
-		m_pos.z
-	);
-	
-}
+	Lib::Input* input = Lib::Input::GetInstance();
+	m_collider.pos.x = m_pos.x = input->GetMovePoint().x;
+	m_collider.pos.x = m_pos.y = input->GetMovePoint().y;
 
+}
 void MouseObject::Reflection(CollisionObject* obj) {
 
 	Lib::Input* input = Lib::Input::GetInstance();

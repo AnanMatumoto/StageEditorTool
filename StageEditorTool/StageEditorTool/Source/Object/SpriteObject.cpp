@@ -11,12 +11,13 @@ SpriteObject::SpriteObject(SpriteObjectParameter&data
 		 data.scale_y),
 		m_sprite_name(data.sprite_name)
 {
-	m_drawer = new Drawer();
 	
 }
 
 void SpriteObject::Init() {
+	m_drawer = new Drawer();
 }
+
 
 void SpriteObject::Update() {
 }
@@ -29,3 +30,6 @@ void SpriteObject::Draw() {
 	);
 }
 
+SpriteObject::~SpriteObject() {
+	delete m_drawer;
+}
