@@ -22,6 +22,14 @@ namespace File {
 
 		while (fgets(buf,256,file)!=nullptr)
 		{
+			if (++readLine == 0) {
+				continue;
+			}
+			else if (readLine > 3) {
+				break;
+			}
+
+
 			fscanf_s(file,
 				"%d, %[^,], %f,%f,%f, %f,%f,%f",
 				&param.type,
