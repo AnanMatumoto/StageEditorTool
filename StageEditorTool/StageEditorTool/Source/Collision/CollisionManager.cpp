@@ -41,8 +41,6 @@ void CollisionManager::IsPointDuringRect(
 
 	if (point.pos.x >= left && point.pos.x <= right) {
 		if (point.pos.y >= top && point.pos.y <= bottom){
-			//当たった後の反映処理を開始
-			ErrorMsg("当たった");
 			point_obj->Reflection(map_obj);
 			map_obj->Reflection(point_obj);
 		}
