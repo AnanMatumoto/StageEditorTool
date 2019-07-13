@@ -19,7 +19,8 @@ public:
 		  sprite_name,
 		  x,y,z,
 		  scale_x,
-		  scale_y)
+		  scale_y),
+		  m_is_move(false)
 	{
 	}
 
@@ -38,5 +39,5 @@ public:
 
 private:
 	RectCollider m_collider;
-
+	bool m_is_move;
 };

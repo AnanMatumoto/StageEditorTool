@@ -1,6 +1,7 @@
 ﻿#include "MouseObject.h"
 #include "../Lib/Input/Input.h"
 #include "../Collision/CollisionManager.h"
+#include "../Collision/CollisionData.h"
 
 MouseObject::MouseObject(CollisionObjectParameter& data)
 :CollisionObject(
@@ -23,21 +24,12 @@ void MouseObject::Init() {
 void MouseObject::Update() {
 
 	Lib::Input* input = Lib::Input::GetInstance();
-	m_collider.pos.x = m_pos.x = input->GetMovePoint().x;
-	m_collider.pos.x = m_pos.y = input->GetMovePoint().y;
+	 m_collider.pos.x = m_pos.x = input->GetMovePoint().x;
+	 m_collider.pos.y = m_pos.y = input->GetMovePoint().y;
 
 }
 void MouseObject::Reflection(CollisionObject* obj) {
+	
 
-	Lib::Input* input = Lib::Input::GetInstance();
-
-	if (input->OnMouseDown(MouseKey::LEFT)) {
-		//オブジェクト選択
-		m_is_drag = true;
-	}
-	else if(input->OnMousePush(MouseKey::RIGHT)){
-		//オブジェクト削除
-		obj->IsDelete();
-	}
 }
 
