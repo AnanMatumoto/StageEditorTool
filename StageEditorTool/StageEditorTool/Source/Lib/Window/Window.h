@@ -9,6 +9,8 @@ namespace Lib {
 
 	 extern const char* WINDOW_CLASS_NAME;
 	 extern HWND window_handle;
+	 extern POINT point[2];
+	 extern bool  is_click[3];
 	/**
 	*@brief ウィンドウプロシージャ
 	*@param[in] hwnd ウィンドウのハンドル

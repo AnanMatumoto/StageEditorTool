@@ -14,8 +14,6 @@ namespace Lib {
 			return &instance;
 		}
 
-		void Uodate();
-
 		bool OnMouseDown(int key);
 
 		bool OnMouseUp(int key);
@@ -26,7 +24,7 @@ namespace Lib {
 
 		 Vec2 GetMovePoint();
 
-		 Vec2 GetClickPoint(int key);
+		 Vec2 GetClickPoint();
 
 	private:
 

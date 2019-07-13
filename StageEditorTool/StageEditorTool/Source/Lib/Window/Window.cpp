@@ -1,13 +1,14 @@
 ﻿#include "Window.h"
 #include "../../Common/Common.h"
 #include "../../Common/Vec.h"
-
-
+#include "../Input/InputDefinition.h"
 
 namespace Lib {
 
 	const char* WINDOW_CLASS_NAME = "StageEditorTool";
 	HWND window_handle = nullptr;
+	POINT point[2];
+	bool  is_click[MAX_OF_NUM];
 
 	//---------------------------------
 	//ウィンドウプロシージャ
@@ -23,12 +24,38 @@ namespace Lib {
 			PostQuitMessage(0);
 			break;
 
+		//押下処理
+		case WM_LBUTTONDOWN:
+			is_click[LEFT] = true;
+			break;
+		case WM_RBUTTONDOWN:
+			is_click[RIGHT] = true;
+			break;
+
+		//離した際の処理
+		case WM_LBUTTONUP:
+			is_click[LEFT] = false;
+			break;
+		case WM_RBUTTONUP:
+			is_click[RIGHT] = false;
+			break;
+
+		//マウス移動
+		case WM_MOUSEMOVE:
+			point[START].x = LOWORD(lparam);
+			point[START].y = HIWORD(lparam);
+			break;
+
 		case WM_SYSKEYDOWN: // システムキー押下開始時
 		case WM_SYSKEYUP:   // システムキー終了時
 			break;
-
-
 		}
+
+		if (is_click[LEFT] == true) {
+			point[END] = point[START];
+		}
+
+
 		return DefWindowProc(hwnd, msg, wparam, lparam);
 	}
 

@@ -2,9 +2,10 @@
 #include <Windows.h>
 
 enum MouseKey {
-	LEFT   = VK_LBUTTON,
-	RIGHT  = VK_RBUTTON,
-	CENTER = VK_MBUTTON
+	LEFT   = 0,
+	RIGHT,
+	CENTER,
+	MAX_OF_NUM
 };
 
 enum  Flame{
@@ -13,6 +14,9 @@ enum  Flame{
 	KEY_PRE,
 };
 
-
+enum MouseState {
+	START,
+	END
+};
 const int INPUT_FLAME = 2;
-const int KEY_NUM     = 3;
+const int KEY_NUM     = 256;
