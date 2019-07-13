@@ -59,12 +59,7 @@ void ObjectManager::Update() {
 			continue;
 		}
 		obj->Update();
-	}
-
-	//!!
-	//ここのコメントを外すとエラーになます。
-	//CollisionManager::GetInstance()->Update();
-	
+	}	
 }
 
 void ObjectManager::Draw() {
@@ -79,7 +74,6 @@ void ObjectManager::Draw() {
 		}
 		obj->Draw();
 	}
-
 }
 
 void ObjectManager::Delete() {
@@ -95,6 +89,7 @@ void ObjectManager::Delete() {
 				itr = m_object_list.erase(itr);
 			}
 		}
+		++itr;
 	}
 	
 }
