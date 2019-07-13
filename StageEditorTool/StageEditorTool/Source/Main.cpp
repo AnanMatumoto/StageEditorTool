@@ -1,6 +1,7 @@
 ﻿#include "Lib/Lib.h"
 #include "Lib/Texture/TextureManager.h"
 #include "Object/ObjectManager.h"
+#include "Collision/CollisionManager.h"
 #include "Lib/Input/Input.h"
 #include <Windows.h>
 #include <string>
@@ -23,12 +24,15 @@ int WINAPI WinMain(
 
 	while (Lib::ProcessMessage()){
 
-		Lib::Input::GetInstance()->Uodate();
+
+		Lib::Input::GetInstance()->Update();
 		ObjectManager::GetInstance()->Update();
+		CollisionManager::GetInstance()->Update();
 
 		Lib::DirectX9Device::GetInstance()->DrawStart();
 		ObjectManager::GetInstance()->Draw();
 		Lib::DirectX9Device::GetInstance()->DrawEnd();
+		ObjectManager::GetInstance()->Delete();
 	}
 	ObjectManager::GetInstance()->AllDelete();
 	Lib::AppEnd();
