@@ -41,7 +41,7 @@ namespace Lib {
 		*@brief 描画の開始
 		*@param[in]back_color バックバッファの色(デフォルトは黒）
 		*/
-		void DrawStart(DWORD back_color = 0xffffffff);
+		void DrawStart(DWORD back_color = 0x00ffffff);
 
 		/**_@brief 描画の終了*/
 		void DrawEnd();

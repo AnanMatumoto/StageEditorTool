@@ -19,6 +19,9 @@ namespace Lib {
 		m_param.BackBufferCount  = 1;
 		m_param.BackBufferFormat = D3DFMT_A8R8G8B8;//ARGB 8ビット
 		m_param.hDeviceWindow    = window_handle;
+		m_param.EnableAutoDepthStencil = TRUE;
+		m_param.AutoDepthStencilFormat = D3DFMT_D24S8;
+		m_param.Flags = D3DPRESENTFLAG_DISCARD_DEPTHSTENCIL;
 
 		if(is_full_screen == true){
 			m_param.Windowed         = FALSE; 
@@ -67,8 +70,8 @@ namespace Lib {
 		//バッファのクリア
 		m_device->Clear(
 			0, nullptr,
-			D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER | D3DCLEAR_STENCIL,
-			back_color | 0xff000000,
+			D3DCLEAR_TARGET|D3DCLEAR_ZBUFFER | D3DCLEAR_STENCIL,
+			back_color,
 			1.0f, 0
 		);
 		//描画開始
