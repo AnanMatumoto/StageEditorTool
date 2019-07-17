@@ -1,5 +1,4 @@
 ﻿#pragma once
-#include <Windows.h>
 
 enum MouseKey {
 	LEFT   = 0,

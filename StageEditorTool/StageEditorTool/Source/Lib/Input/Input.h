@@ -2,6 +2,8 @@
 
 #include "InputDefinition.h"
 #include "../../Common/Vec.h"
+#include <WinSock2.h>
+#include <Windows.h>
 
 namespace Lib {
 
@@ -18,7 +20,7 @@ namespace Lib {
 
 		bool OnMouseUp(int key);
 
-		bool OnMousePush(int key);
+		//bool OnMousePush(int key);
 
 		bool CheckHitKey(const BYTE key);
 
@@ -27,7 +29,6 @@ namespace Lib {
 		 Vec2 GetClickPoint();
 
 	private:
-
 		BYTE  m_key[INPUT_FLAME][KEY_NUM];
 		POINT m_move_point;
 		POINT m_click_point;

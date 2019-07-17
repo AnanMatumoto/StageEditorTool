@@ -2,6 +2,9 @@
 #include "../../Common/Common.h"
 #include "../../Common/Vec.h"
 #include "../Input/InputDefinition.h"
+#include "../../Socket/ClientSocket.h"
+#include "../../Socket/SokcketDefinition.h"
+#include <windowsx.h>
 
 namespace Lib {
 
@@ -23,6 +26,28 @@ namespace Lib {
 		case WM_DESTROY:
 			PostQuitMessage(0);
 			break;
+
+		/*case WmAsync:
+			switch (WSAGETSELECTEVENT(lparam))
+			{
+			case FD_READ:
+				if (ClientSocket::GetInstance()->Receive(wparam) == false) {
+
+				}
+				break;
+			case FD_CLOSE:
+				ClientSocket::GetInstance()->CleanUp();
+				break;
+
+			default:
+				return FALSE;
+				break;
+			}
+		case WmServerName:
+			if (ClientSocket::GetInstance()->Connect() == false) {
+				ErrorMsg("接続に失敗しました。");
+			}
+			break;*/
 
 		//押下処理
 		case WM_LBUTTONDOWN:
@@ -125,6 +150,8 @@ namespace Lib {
 			h_instance,
 			nullptr
 		);
+
+		
 
 		if (window_handle== nullptr) {
 			ErrorMsg("ウィンドウの作成に失敗しました。");

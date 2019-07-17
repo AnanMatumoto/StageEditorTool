@@ -1,6 +1,5 @@
 ﻿#include "Input.h"
 #include "../Window/Window.h"
-
 namespace Lib {
 
 	bool Input::OnMouseDown(int key) {
