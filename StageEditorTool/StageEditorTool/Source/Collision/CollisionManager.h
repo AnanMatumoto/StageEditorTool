@@ -2,6 +2,7 @@
 
 #include "../Collision/CollisionDefinition.h"
 #include "../Common/Vec.h"
+#include <map>
 #include <vector>
 
 class CollisionObject;
@@ -21,15 +22,20 @@ public:
 
 	void IsPointDuringRect(
 		CollisionObject* point,
-		CollisionObject* rect
-	);
+		CollisionObject* rect);
 
+	//矩形と矩形の当たり判定
+	void IsOverlapRect(
+		CollisionObject* rect_a,
+		CollisionObject* rect_b
+	);
+	
 
 private:
-	CollisionObject* m_pivot_coll;
-	std::vector<CollisionObject*> m_list;
 
-	
+	std::vector<CollisionObject*>m_obj_list;
+	CollisionObject* m_mouse_obj;
+	CollisionObject* m_cur_obj;
 };
 
 
