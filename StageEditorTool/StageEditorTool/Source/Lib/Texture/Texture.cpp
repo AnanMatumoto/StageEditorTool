@@ -37,6 +37,18 @@ namespace Lib {
 		return nullptr;
 	}
 
+	Texture& Texture::operator=(const Texture& tex){
+		name = tex.name;
+		if (texture != nullptr) {
+			texture->Release();
+		}
+		texture = tex;
+		if (texture != nullptr) {
+			texture->AddRef();
+		}
+		size = tex.size;
+		return *this;
+	}
 	//--------------------------------
 	// デストラクタ
 	Texture::~Texture() {

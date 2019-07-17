@@ -20,6 +20,8 @@ namespace Lib {
 		{
 		}
 
+		Texture& operator=(const Texture& tex);
+
 		/** @brief デストラクタ */
 		~Texture();
 
