@@ -122,7 +122,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Calc\Calc.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="Source\Common\Common.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Source\Editor\Editor.cpp">
       <SubType>
       </SubType>
     </ClCompile>
@@ -130,10 +138,7 @@
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="Source\File\File.cpp">
-      <SubType>
-      </SubType>
-    </ClCompile>
+    <ClCompile Include="Source\File\File.cpp" />
     <ClCompile Include="Source\Lib\DirectX9\DirectX9Device.cpp">
       <SubType>
       </SubType>
@@ -190,8 +195,16 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="Source\Socket\ClientSocket.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Calc\Calc.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="Source\Collision\CollisionData.h">
       <SubType>
       </SubType>
@@ -200,15 +213,16 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="Source\Editor\Edditor.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="Source\Factory\ObjectFactory.h">
       <SubType>
       </SubType>
     </ClInclude>
     <ClInclude Include="Source\File\DataDefinition.h" />
-    <ClInclude Include="Source\File\File.h">
-      <SubType>
-      </SubType>
-    </ClInclude>
+    <ClInclude Include="Source\File\File.h" />
     <ClInclude Include="Source\Lib\DirectX9\DirectX9Device.h">
       <SubType>
       </SubType>
@@ -298,6 +312,11 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="Source\Socket\ClientSocket.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Source\Socket\SokcketDefinition.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

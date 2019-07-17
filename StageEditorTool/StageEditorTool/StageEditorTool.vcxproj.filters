@@ -65,7 +65,16 @@
     <ClCompile Include="Source\Factory\ObjectFactory.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Socket\ClientSocket.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Editor\Editor.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
     <ClCompile Include="Source\File\File.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Calc\Calc.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
@@ -113,8 +122,12 @@
     <ClInclude Include="Source\Collision\CollisionData.h" />
     <ClInclude Include="Source\Object\ObjectManager.h" />
     <ClInclude Include="Source\Factory\ObjectFactory.h" />
-    <ClInclude Include="Source\File\File.h" />
     <ClInclude Include="Source\Collision\CollisionDefinition.h" />
+    <ClInclude Include="Source\Socket\ClientSocket.h" />
+    <ClInclude Include="Source\Socket\SokcketDefinition.h" />
+    <ClInclude Include="Source\Editor\Edditor.h" />
     <ClInclude Include="Source\File\DataDefinition.h" />
+    <ClInclude Include="Source\File\File.h" />
+    <ClInclude Include="Source\Calc\Calc.h" />
   </ItemGroup>
 </Project>
