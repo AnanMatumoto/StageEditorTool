@@ -2,7 +2,10 @@
 #include "Lib/Texture/TextureManager.h"
 #include "Object/ObjectManager.h"
 #include "Collision/CollisionManager.h"
+//#include "Socket/ClientSocket.h"
+//#include "Editor/Edditor.h"
 #include "Lib/Input/Input.h"
+#include <WinSock2.h>
 #include <Windows.h>
 #include <string>
 
@@ -18,14 +21,18 @@ int WINAPI WinMain(
 		return -1;
 	}
 
+	//ClientSocket::GetInstance()->Start(2000);
+
 	Lib::TextureManager::GetInstance()->Load("./Res/object_64x64.png");
+	Lib::TextureManager::GetInstance()->Load("./Res/object_192×192_ver2_c.png");
+	Lib::TextureManager::GetInstance()->Load("./Res/object_192x192.png");
 	ObjectManager::GetInstance()->LoadData("./Res/test.csv");
 	ObjectManager::GetInstance()->Init();
 
+	//Editor::GetInstance()->Init("./Res/object_64x64.png");
+
 	while (Lib::ProcessMessage()){
 
-
-		Lib::Input::GetInstance()->Update();
 		ObjectManager::GetInstance()->Update();
 		CollisionManager::GetInstance()->Update();
 
@@ -34,7 +41,8 @@ int WINAPI WinMain(
 		Lib::DirectX9Device::GetInstance()->DrawEnd();
 		ObjectManager::GetInstance()->Delete();
 	}
-	ObjectManager::GetInstance()->AllDelete();
+
+	//ClientSocket::GetInstance()->CleanUp();
 	Lib::AppEnd();
 	return 0;
 }

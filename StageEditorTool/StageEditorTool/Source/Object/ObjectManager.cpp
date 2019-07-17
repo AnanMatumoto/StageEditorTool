@@ -25,7 +25,7 @@ void ObjectManager::AddObject() {
 		0.f, 0.f
 	);
 	m_object_list.emplace_back(factory.CreateMaouseObject(mouse_param));
-
+	
 	if (m_map_list.empty()==false) {
 		//マップオブジェクト作成	
 		for (int i = 0; i < m_map_list.size(); ++i) {
@@ -85,13 +85,12 @@ void ObjectManager::Delete() {
 			Object* obj = *itr;
 			if (obj != nullptr) {
 				delete obj;
-			
-				itr = m_object_list.erase(itr);
 			}
+			itr = m_object_list.erase(itr);
+			continue;
 		}
 		++itr;
 	}
-	
 }
 
 void ObjectManager::AllDelete() {
