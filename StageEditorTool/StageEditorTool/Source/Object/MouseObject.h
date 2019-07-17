@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include "CollisionObject.h"
+#include "MapObject.h"
 #include "../Collision/CollisionData.h"
 #include "../Collision/CollisionDefinition.h"
 
@@ -15,8 +16,16 @@ public:
 		std::string sprite_name,
 		float x, float y, float z=1.f,
 		float rot=0.f, float scale_x=1.f, float scale_y=1.f
-	) :CollisionObject(type, sprite_name, x, y, z, scale_x, scale_y)
+	) :CollisionObject(
+		type, 
+		sprite_name,
+		x, y, z,
+		scale_x,
+		scale_y)
 	{
+	}
+
+	~MouseObject()override {
 	}
 
 	void Init()override;
@@ -33,7 +42,6 @@ public:
 
 private:
 
-	bool m_is_drag;
-	Vec2 m_mouse_pos;
-	PointCollider m_collider;
+	//CollisionObject* m_select_obj;
+	PointCollider    m_collider;
 };
