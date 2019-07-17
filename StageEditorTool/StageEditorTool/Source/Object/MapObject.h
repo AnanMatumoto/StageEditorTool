@@ -35,7 +35,12 @@ public:
 	void SetCollider(RectCollider& collider)override {
 		 collider = m_collider;
 	}
-    void Reflection(CollisionObject* obj)override;
+
+	float GetColliderDepth()override {
+		return m_collider.pos.z;
+	}
+    
+	void Reflection(CollisionObject* obj)override;
 
 private:
 	RectCollider m_collider;

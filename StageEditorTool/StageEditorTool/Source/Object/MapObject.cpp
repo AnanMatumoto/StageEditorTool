@@ -2,6 +2,7 @@
 #include "../Collision/CollisionManager.h"
 #include "../Lib/Texture/TextureManager.h"
 #include "../Lib/Input/Input.h"
+#include "../Calc/Calc.h"
 
 MapObject::MapObject(MapObjectParameter& data)
 :CollisionObject(
@@ -14,6 +15,7 @@ MapObject::MapObject(MapObjectParameter& data)
 	data.scale_x,
 	data.scale_x
 ){
+
 }
 
 void MapObject::Init() {
@@ -21,38 +23,40 @@ void MapObject::Init() {
 	CollisionManager::GetInstance()->Entry(this);
 
 	m_size = Lib::TextureManager::GetInstance()->GetSize(m_sprite_name);
-	m_collider = RectCollider(
-		m_pos.x,
-		m_pos.y,
-		m_pos.z,
-		m_size.x,
-		m_size.y
-	);
+	m_collider.pos.x = m_pos.x;
+	m_collider.pos.y = m_pos.y;
+	m_collider.pos.z = m_pos.z;
+	m_collider.size.x = m_size.x;
+	m_collider.size.y = m_size.y;
 }
 
 void MapObject::Update() {
 
 	Lib::Input* input = Lib::Input::GetInstance();
-		
-	if (m_is_move==true) {
-			m_pos.x = input->GetClickPoint().x;
-			m_pos.y = input->GetClickPoint().y;
+	
+	if (m_is_move == true) {
+		m_collider.pos.x = m_pos.x = input->GetClickPoint().x;
+		m_collider.pos.y = m_pos.y = input->GetClickPoint().y;
 	}
 }
 
 void MapObject::Reflection(CollisionObject* obj){
 
-	if (obj->GetColliisionType() == POINT_TYPE) {
-
+	switch (obj->GetColliisionType())
+	{
+	case POINT_TYPE:
 		if (Lib::Input::GetInstance()->OnMouseDown(LEFT)) {
 			m_is_move = true;
 		}
-		else {
+		else if (Lib::Input::GetInstance()->OnMouseUp(LEFT)) {
 			m_is_move = false;
 		}
+	case RECT_TYPE:
+		float new_z = obj->GetColliderDepth();
+		Calc::SwapFloatValue(new_z, m_collider.pos.z);
 
-		if (Lib::Input::GetInstance()->OnMouseDown(RIGHT)) {
-			m_is_delete = true;
-		}
 	}
+	
+
 }
+
