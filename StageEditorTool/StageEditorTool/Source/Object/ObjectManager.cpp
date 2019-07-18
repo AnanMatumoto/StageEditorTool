@@ -52,13 +52,9 @@ void ObjectManager::Update() {
 
 	for (auto obj : m_object_list) {
 
-		if (obj == nullptr) {
-			return;
+		if (obj != nullptr) {
+			obj->Update();
 		}
-		else if (obj->IsDelete() == true) {
-			continue;
-		}
-		obj->Update();
 	}	
 }
 
@@ -66,10 +62,7 @@ void ObjectManager::Draw() {
 
 	for (auto obj : m_object_list) {
 
-		if (obj == nullptr) {
-			return;
-		}
-		else if (obj->IsDelete() == true) {
+		if (obj->IsDelete() == true) {
 			continue;
 		}
 		obj->Draw();
