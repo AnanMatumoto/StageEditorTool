@@ -31,6 +31,11 @@ public:
 		m_drag_object = obj;
 	}
 
+	void SwapDepth(
+		CollisionObject* select_obj,
+		CollisionObject* map_obj);
+
+	void Update();
 
 private:
 	std::string m_select_sprite_name;
