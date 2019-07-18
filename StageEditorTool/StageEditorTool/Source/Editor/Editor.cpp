@@ -1,4 +1,4 @@
-﻿#include "Edditor.h"
+﻿#include "Editor.h"
 #include "../Socket/SokcketDefinition.h"
 
 void Editor::Recive(char buff[1024]) {
@@ -15,4 +15,28 @@ void Editor::Recive(char buff[1024]) {
 		m_select_sprite_name = &buff[sizeof(int)];
 		break;
 	}
+}
+
+void Editor::Update() {
+
+	if (m_drag_object != nullptr) {
+		
+	}
+}
+
+void Editor::SwapDepth(
+	CollisionObject* select_obj,
+	CollisionObject* map_obj
+) {
+	RectCollider select_rect;
+	RectCollider map_rect;
+
+	select_obj->SetCollider(select_rect);
+	map_obj->SetCollider(map_rect);
+
+	float temp = 0;
+	
+	temp = select_rect.pos.z;
+	select_rect.pos.z = map_rect.pos.z;
+	map_rect.pos.z = temp;
 }
