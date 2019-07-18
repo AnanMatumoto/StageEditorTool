@@ -17,8 +17,8 @@ public:
 		float pos_y,
 		float depth = 1.f,
 		float degree = 0.f,
-		float ofset_x = 0.f,
-		float ofset_y = 0.f,
+		float ofset_x = 0.5f,
+		float ofset_y = 0.5f,
 		DWORD color = 0x00ffffff
 	);
 
