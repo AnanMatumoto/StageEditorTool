@@ -33,6 +33,8 @@ int WINAPI WinMain(
 
 	while (Lib::ProcessMessage()){
 
+		CollisionManager::GetInstance()->Clear();
+
 		ObjectManager::GetInstance()->Update();
 		CollisionManager::GetInstance()->Update();
 
