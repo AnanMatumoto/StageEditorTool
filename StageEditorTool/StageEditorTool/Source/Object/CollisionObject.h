@@ -18,7 +18,7 @@ public:
 		float rot=0.f, float scale_x=1.f, float scale_y=1.f
 	):SpriteObject(sprite_name,x, y, z , rot, scale_x, scale_y),
 	  m_type(type),
-	  m_is_hit(false)
+	  m_is_select(false)
 	{
 	}
 
@@ -36,18 +36,17 @@ public:
 	virtual void SetCollider(PointCollider& collider){
 	}
 
-	virtual float GetColliderDepth() {
-		return 0;
-	}
-
 	virtual void Reflection(CollisionObject* obj) = 0;
 
-
+	const bool GetSelect()const{
+		return m_is_select;
+	}
 
 protected:
 	CollisionType m_type;
-    bool          m_is_hit;
+	bool m_is_select;
 
 private:
 	Collider m_collider;
 };
+
