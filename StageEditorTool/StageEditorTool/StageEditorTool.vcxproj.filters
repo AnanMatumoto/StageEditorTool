@@ -125,9 +125,9 @@
     <ClInclude Include="Source\Collision\CollisionDefinition.h" />
     <ClInclude Include="Source\Socket\ClientSocket.h" />
     <ClInclude Include="Source\Socket\SokcketDefinition.h" />
-    <ClInclude Include="Source\Editor\Edditor.h" />
     <ClInclude Include="Source\File\DataDefinition.h" />
     <ClInclude Include="Source\File\File.h" />
     <ClInclude Include="Source\Calc\Calc.h" />
+    <ClInclude Include="Source\Editor\Editor.h" />
   </ItemGroup>
 </Project>

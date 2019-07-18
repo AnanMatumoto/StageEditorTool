@@ -213,7 +213,7 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="Source\Editor\Edditor.h">
+    <ClInclude Include="Source\Editor\Editor.h">
       <SubType>
       </SubType>
     </ClInclude>
