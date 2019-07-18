@@ -39,7 +39,6 @@ public:
 	void Reflection(CollisionObject* obj)override;
 	
 	
-
 private:
 
 	//CollisionObject* m_select_obj;
