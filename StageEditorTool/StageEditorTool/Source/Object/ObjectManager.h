@@ -16,7 +16,7 @@ public:
 		return &instance;
 	}
 
-	void LoadData(const char* file_name);
+	bool Load(const char* file_name);
 
 	void AddRegist(Object* obj);
 

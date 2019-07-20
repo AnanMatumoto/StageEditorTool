@@ -5,13 +5,13 @@
 #include "../Collision/CollisionManager.h"
 #include "../Object/ResourceObject.h"
 
-void ObjectManager::LoadData(const char* file_name) {
+bool ObjectManager::Load(const char* file_name) {
 
 	std::vector<CollisionObjectParameter> data_list;
 	//リーソースデータ読み込み
 	if (File::InputResourceData(file_name, data_list) == false)
 	{
-		return;
+		return false;
 	}
 
 	ObjectFactory factory;
@@ -31,6 +31,7 @@ void ObjectManager::LoadData(const char* file_name) {
 			m_resource_list.push_back(factory.CreateResourceObject(data_list[i]));
 		}
 	}
+	return true;
 }
 
 void ObjectManager::AddRegist(Object* obj) {

@@ -24,7 +24,7 @@ namespace Lib {
 		*@brief テクスチャー読み込み関数
 		*@param[in]tex_name 画像名
 		*/
-		bool Load(std::string tex_name);
+		bool Load(const char* file_name);
 
 		/**
 		*@brief テクスチャー検索関数

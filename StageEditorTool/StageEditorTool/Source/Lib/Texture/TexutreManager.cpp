@@ -1,27 +1,36 @@
 ﻿#include "TextureManager.h"
-
+#include "../../File/File.h"
 namespace Lib {
 
 	//---------------------------------
 	//テクスチャー読み込み処理
-	bool TextureManager::Load(std::string tex_name) {
+	bool TextureManager::Load(const char* file_name) {
 
-		if (m_texture_list.count(tex_name) > 0) {
-			//登録済である場合
-			return true;
+		/*if (m_texture_list.count(tex_name) > 0) {
+			return false;
 		}
-		
-		
-		Texture* texture= new Texture();
+		Texture* texture = new Texture();
 		texture->Create(tex_name);
+
+
 		if (texture == nullptr) {
 			return false;
 		}
-		//登録完了
-		m_texture_list.emplace(tex_name, texture);
+		m_texture_list.emplace(tex_name, texture);*/
+		std::vector<std::string>texture_list;
+		if (File::InputTextureData(file_name, texture_list) == false) {
+			return false;
+		}
+
+		for (auto tex_name : texture_list) {
+			Texture* texture = new Texture();
+			texture->Create(tex_name);
+			if (texture != nullptr) {
+				m_texture_list.emplace(tex_name,texture);
+			}
+		}
 		return true;
 	}
-
 	//---------------------------------
 	//テクスチャー検索処理
 	Texture* TextureManager::Find(std::string tex_name) {
@@ -55,12 +64,12 @@ namespace Lib {
 		if (itr != m_texture_list.end()) {
 			//値を削除
 			Texture* tex = itr->second;
-			if (tex == nullptr) {
-				return;
+			if (tex != nullptr) {
+				delete tex;
+				//要素を削除
+				itr = m_texture_list.erase(itr);
 			}
-			delete tex;
-			//要素を削除
-			m_texture_list.erase(itr);
+			++itr;
 		}
 	}
 
@@ -79,5 +88,4 @@ namespace Lib {
 		}
 		m_texture_list.clear();
 	}
-
 }
