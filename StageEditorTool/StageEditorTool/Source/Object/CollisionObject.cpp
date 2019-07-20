@@ -11,7 +11,8 @@ CollisionObject::CollisionObject(
 	data.rot,
 	data.scale_x,
 	data.scale_y),
-	m_type(data.type) 
+	m_object_type(data.object_type),
+	m_collision_type(data.collision_type)
 {
 }
 

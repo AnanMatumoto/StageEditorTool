@@ -12,12 +12,14 @@ public:
 	CollisionObject(CollisionObjectParameter& data);
 
 	CollisionObject(
-		CollisionType type,
+		ObjectType object_type,
+		CollisionType collision_type,
 		std::string sprite_name,
 		float x, float y, float z= 1.f,
 		float rot=0.f, float scale_x=1.f, float scale_y=1.f
 	):SpriteObject(sprite_name,x, y, z , rot, scale_x, scale_y),
-	  m_type(type),
+	  m_object_type(object_type),
+	  m_collision_type(collision_type),
 	  m_is_select(false)
 	{
 	}
@@ -26,8 +28,8 @@ public:
 
 	}
 
-	const CollisionType GetColliisionType()const{
-		return m_type;
+    CollisionType GetColliisionType(){
+		return m_collision_type;
 	}
 
 	virtual void SetCollider(RectCollider& collider){
@@ -36,14 +38,20 @@ public:
 	virtual void SetCollider(PointCollider& collider){
 	}
 
-	virtual void Reflection(CollisionObject* obj) = 0;
+    ObjectType GetObjectType() {
+		return m_object_type;
+	}
+
+	virtual void Reflection(
+		CollisionObject* obj) = 0;
 
 	const bool GetSelect()const{
 		return m_is_select;
 	}
 
 protected:
-	CollisionType m_type;
+	CollisionType m_collision_type;
+	ObjectType	  m_object_type;
 	bool m_is_select;
 
 private:
