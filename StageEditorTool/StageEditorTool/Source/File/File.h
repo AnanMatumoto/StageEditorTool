@@ -6,6 +6,9 @@
 #include <string>
 #include <vector>
 
+#define FILE_LINE_END 3 //ファイルの末端
+
+
 namespace File {
 	
 	enum DataType {
@@ -23,4 +26,9 @@ namespace File {
 		std::vector<SpriteObjectParameter>&list
 	);
 
+
+	bool InputTextureData(
+		const char* file_name,
+		std::vector<std::string>&list
+	);
 }

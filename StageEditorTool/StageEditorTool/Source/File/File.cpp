@@ -3,7 +3,6 @@
 
 namespace File {
 
-
 	bool InputResourceData(
 		const char* file_name,
 		std::vector<CollisionObjectParameter>&list
@@ -90,4 +89,27 @@ namespace File {
 		return true;
 	}
 
+	bool InputTextureData(
+		const char* file_name,
+		std::vector<std::string>&list
+	) {
+
+		FILE* file;
+		char buf[256];
+
+		fopen_s(&file, file_name, "r");
+		if (file == nullptr) {
+			return false;
+		}
+
+		char texture_name[56];//内容を格納するバッファ
+		int  read_line = 0;//読み込みの行
+		while (fscanf_s(file, "%s,",
+			texture_name, 56)!=EOF)
+		{
+			list.push_back(texture_name);
+		}
+		fclose(file);
+		return true;
+	}
 }
