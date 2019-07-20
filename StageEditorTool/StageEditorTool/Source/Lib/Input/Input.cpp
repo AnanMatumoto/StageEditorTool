@@ -8,9 +8,22 @@ namespace Lib {
 		}
 		return false;
 	}
+	bool Input::OnMousePush(int key) {
+		static int count;
+		if (is_click[key] == true) {
+			count++;
+			if (count == 1) {
+				count = 0;
+				return true;
+			}
+			return false;
+		}
+		return false;
+	}
 
 	bool Input::OnMouseUp(int key) {
 		if (is_click[key] == false) {
+			
 			return true;
 		}
 		return false;
@@ -29,7 +42,7 @@ namespace Lib {
 	Vec2 Input::GetClickPoint() {
 		Vec2 vec(point[END].x, point[END].y);
 		return vec;
-
 	}
+
 }
 

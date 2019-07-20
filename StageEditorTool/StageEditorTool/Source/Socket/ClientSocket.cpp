@@ -2,7 +2,7 @@
 #include "SokcketDefinition.h"
 #include "../Common/Common.h"
 #include "../Lib/Window/Window.h"
-#include "../Editor/Edditor.h"
+#include "../Editor/Editor.h"
 
 #include <windowsx.h>
 

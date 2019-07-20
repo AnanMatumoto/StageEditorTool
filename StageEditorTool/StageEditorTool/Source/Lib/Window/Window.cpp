@@ -11,7 +11,7 @@ namespace Lib {
 	const char* WINDOW_CLASS_NAME = "StageEditorTool";
 	HWND window_handle = nullptr;
 	POINT point[2];
-	bool  is_click[MAX_OF_NUM];
+	bool is_click[MAX_OF_NUM];
 
 	//---------------------------------
 	//ウィンドウプロシージャ
@@ -114,13 +114,12 @@ namespace Lib {
 	) {
 
 		HINSTANCE h_instance = nullptr;
-		const char* class_name = WINDOW_CLASS_NAME;
 		WNDCLASSEX window_class = {};
 		
 		//デバイスの設定
 		SetUpDevice(
 			h_instance, 
-			class_name, 
+			WINDOW_CLASS_NAME, 
 			&window_class
 		);
 
@@ -138,7 +137,7 @@ namespace Lib {
 		//ウィンドウの作成
 		window_handle = CreateWindowEx(
 			dw_exstyle,
-			class_name,
+			WINDOW_CLASS_NAME,
 			title,
 			dw_style,
 			CW_USEDEFAULT,//起動時の位置と幅をウィンドウズに委ねる
@@ -150,8 +149,6 @@ namespace Lib {
 			h_instance,
 			nullptr
 		);
-
-		
 
 		if (window_handle== nullptr) {
 			ErrorMsg("ウィンドウの作成に失敗しました。");

@@ -20,7 +20,7 @@ namespace Lib {
 
 		bool OnMouseUp(int key);
 
-		//bool OnMousePush(int key);
+		bool OnMousePush(int key);
 
 		bool CheckHitKey(const BYTE key);
 
@@ -30,8 +30,7 @@ namespace Lib {
 
 	private:
 		BYTE  m_key[INPUT_FLAME][KEY_NUM];
-		POINT m_move_point;
-		POINT m_click_point;
+		int   m_count = 0;
 	};
 
 }
