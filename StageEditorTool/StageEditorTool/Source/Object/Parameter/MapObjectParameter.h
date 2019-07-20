@@ -7,7 +7,8 @@
 struct  MapObjectParameter:public CollisionObjectParameter
 {
 	MapObjectParameter(
-		CollisionType type,
+		ObjectType object_type,
+		CollisionType collision_type,
 		std::string sprite_name,
 		float x, 
 		float y,
@@ -16,7 +17,8 @@ struct  MapObjectParameter:public CollisionObjectParameter
 		float scale_x=1.f,
 		float scale_y=1.f
 	):CollisionObjectParameter(
-		type,
+		object_type,
+		collision_type,
 		sprite_name,
 		x, y, z,
 		rot,
