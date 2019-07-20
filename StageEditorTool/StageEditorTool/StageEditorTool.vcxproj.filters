@@ -80,9 +80,6 @@
     <ClCompile Include="Source\Object\ResourceObject.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Application.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Lib\Texture\Texture.h">
@@ -136,6 +133,5 @@
       <Filter>ソース ファイル\Lib</Filter>
     </ClInclude>
     <ClInclude Include="Source\Object\ResourceObject.h" />
-    <ClInclude Include="Source\Application.h" />
   </ItemGroup>
 </Project>

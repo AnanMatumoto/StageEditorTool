@@ -122,10 +122,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Application.cpp">
-      <SubType>
-      </SubType>
-    </ClCompile>
     <ClCompile Include="Source\Calc\Calc.cpp">
       <SubType>
       </SubType>
@@ -209,10 +205,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Application.h">
-      <SubType>
-      </SubType>
-    </ClInclude>
     <ClInclude Include="Source\Calc\Calc.h">
       <SubType>
       </SubType>
