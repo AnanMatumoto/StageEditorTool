@@ -17,7 +17,7 @@ int WINAPI WinMain(
 	INT       n_cmd_show
 ) {
 
-	if (Lib::AppInit(1000, 800, "Test", false)==false) {
+	if (Lib::AppInit(1500, 1000, "StageEditorTool", false)==false) {
 		return -1;
 	}
 
@@ -26,17 +26,25 @@ int WINAPI WinMain(
 	Lib::TextureManager::GetInstance()->Load("./Res/object_64x64.png");
 	Lib::TextureManager::GetInstance()->Load("./Res/object_192×192_ver2_c.png");
 	Lib::TextureManager::GetInstance()->Load("./Res/object_192x192.png");
-	ObjectManager::GetInstance()->LoadData("./Res/test.csv");
+	Lib::TextureManager::GetInstance()->Load(
+		"./Res/reource_space.png"
+	);
+	ObjectManager::GetInstance()->LoadData("./Res/resource_data.csv");
+
+
 	ObjectManager::GetInstance()->Init();
+
 
 	//Editor::GetInstance()->Init("./Res/object_64x64.png");
 
 	while (Lib::ProcessMessage()){
 
+		//エディターに閉じ込める忘れない
 		CollisionManager::GetInstance()->Clear();
 
 		ObjectManager::GetInstance()->Update();
 		CollisionManager::GetInstance()->Update();
+		
 
 		Lib::DirectX9Device::GetInstance()->DrawStart();
 		ObjectManager::GetInstance()->Draw();
