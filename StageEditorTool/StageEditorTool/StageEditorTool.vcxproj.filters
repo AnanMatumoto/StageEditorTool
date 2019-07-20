@@ -17,9 +17,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Drawer.cpp">
-      <Filter>ソース ファイル\Lib</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -77,11 +74,17 @@
     <ClCompile Include="Source\Calc\Calc.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Drawer\Drawer.cpp">
+      <Filter>ソース ファイル\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object\ResourceObject.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Application.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Drawer.h">
-      <Filter>ソース ファイル\Lib</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Lib\Texture\Texture.h">
       <Filter>ソース ファイル\Lib</Filter>
     </ClInclude>
@@ -129,5 +132,10 @@
     <ClInclude Include="Source\File\File.h" />
     <ClInclude Include="Source\Calc\Calc.h" />
     <ClInclude Include="Source\Editor\Editor.h" />
+    <ClInclude Include="Source\Drawer\Drawer.h">
+      <Filter>ソース ファイル\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object\ResourceObject.h" />
+    <ClInclude Include="Source\Application.h" />
   </ItemGroup>
 </Project>
