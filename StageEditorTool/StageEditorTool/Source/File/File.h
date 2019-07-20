@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include "../Object/Parameter/MapObjectParameter.h"
+#include "../Object/Parameter/CollisionObjectParameter.h"
 #include "../Object/Parameter/SpriteObjectParameter.h"
 #include "DataDefinition.h"
 #include <string>
@@ -13,9 +13,9 @@ namespace File {
 		SPRITE_DATA
 	};
 
-	bool InputMapData(
+	bool InputResourceData(
 		const char* file_name,
-		std::vector<MapObjectParameter>&list
+		std::vector<CollisionObjectParameter>&list
 	);
 
 	bool InputSpriteData(
