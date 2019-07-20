@@ -11,12 +11,15 @@ public:
 
 	MapObject(MapObjectParameter& data);
 
-	MapObject(CollisionType type,
+	MapObject(
+		ObjectType object_type,
+		CollisionType collision_type,
 		std::string sprite_name,
 		float x, float y, float z = 1.f,
 		float scale_x= 1.f, float scale_y = 1.f
 		):CollisionObject(
-		  type,
+		  object_type,
+		  collision_type,
 		  sprite_name,
 		  x,y,z,
 		  scale_x,

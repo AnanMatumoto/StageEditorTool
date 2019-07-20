@@ -3,10 +3,12 @@
 #include "../Collision/CollisionManager.h"
 #include "../Collision/CollisionData.h"
 #include "../Editor/Editor.h"
+#include "../Common/Common.h"
 
 MouseObject::MouseObject(CollisionObjectParameter& data)
 :CollisionObject(
-	data.type,
+	data.object_type,
+	data.collision_type,
 	data.sprite_name,
 	data.pos.x,
 	data.pos.y,
@@ -19,6 +21,7 @@ MouseObject::MouseObject(CollisionObjectParameter& data)
 
 void MouseObject::Init() {
 
+	
 }
 
 void MouseObject::Update() {
@@ -27,11 +30,12 @@ void MouseObject::Update() {
 	 auto input = Lib::Input::GetInstance();
 	 m_collider.pos.x = m_pos.x = input->GetMovePoint().x;
 	 m_collider.pos.y = m_pos.y = input->GetMovePoint().y;
+
 }
 
 void MouseObject::Reflection(CollisionObject* obj) {
 	
-	
+
 	
 }
 

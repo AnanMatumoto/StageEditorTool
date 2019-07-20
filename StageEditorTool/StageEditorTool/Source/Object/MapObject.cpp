@@ -6,7 +6,8 @@
 
 MapObject::MapObject(MapObjectParameter& data)
 :CollisionObject(
-	data.type,
+	data.object_type,
+	data.collision_type,
 	data.sprite_name,
 	data.pos.x,
 	data.pos.y,
@@ -16,12 +17,13 @@ MapObject::MapObject(MapObjectParameter& data)
 	data.scale_x
 ){
 	m_size = Lib::TextureManager::GetInstance()->GetSize(m_sprite_name);
+	m_collider.pos.x = m_pos.x;
+	m_collider.pos.y = m_pos.y;
+	m_collider.size  = m_size;
 }
 
 void MapObject::Init() {
 
-	m_collider.pos = m_pos;
-	m_collider.size = m_size;
 }
 
 void MapObject::Update() {
@@ -50,22 +52,17 @@ void MapObject::Reflection(CollisionObject* obj){
 	{
 	case RECT_TYPE:
 		obj->SetCollider(rect);
-		//選択中のオブジェクトが背面にある場合
-		if (rect.pos.z < m_collider.pos.z) {
-			Editor::GetInstance()->SwapDepth(this, obj);
-		}
 		break;
 
 	case POINT_TYPE:
 
-		if (Lib::Input::GetInstance()->OnMouseDown(LEFT)) {
+		Lib::Input* input = Lib::Input::GetInstance();
+		if (input->OnMouseDown(LEFT)) {
 			m_is_select = true;
 			Editor::GetInstance()->SetDragObject(this);
-
 		}
-		if (Lib::Input::GetInstance()->OnMouseDown(RIGHT)) {
+		if (input->OnMouseDown(RIGHT)) {
 			m_is_delete = true;
-			
 		}
 		break;
 	}

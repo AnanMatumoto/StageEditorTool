@@ -5,6 +5,7 @@
 #include "../Collision/CollisionData.h"
 #include "../Collision/CollisionDefinition.h"
 
+
 class MouseObject :public CollisionObject {
 
 public:
@@ -12,12 +13,14 @@ public:
 	MouseObject(CollisionObjectParameter &data);
 
 	MouseObject(
-		CollisionType type,
+		ObjectType object_type,
+		CollisionType collision_type,
 		std::string sprite_name,
 		float x, float y, float z=1.f,
 		float rot=0.f, float scale_x=1.f, float scale_y=1.f
 	) :CollisionObject(
-		type, 
+		object_type,
+		collision_type,
 		sprite_name,
 		x, y, z,
 		scale_x,
@@ -36,11 +39,10 @@ public:
 		collider = m_collider;
 	}
 
-	void Reflection(CollisionObject* obj)override;
+	void Reflection(CollisionObject* )override;
 	
-	
+
 private:
 
-	//CollisionObject* m_select_obj;
-	PointCollider    m_collider;
+	PointCollider  m_collider;
 };
