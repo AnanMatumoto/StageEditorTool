@@ -1,7 +1,7 @@
 ﻿#pragma once
 
 #include "Parameter/SpriteObjectParameter.h"
-#include "../Drawer.h"
+#include "../Drawer/Drawer.h"
 #include "Object.h"
 
 
@@ -33,6 +33,9 @@ public:
 
 	virtual void Draw()override;
 
+	std::string GetSpriteName() {
+		return m_sprite_name;
+	}
 
 protected:
 

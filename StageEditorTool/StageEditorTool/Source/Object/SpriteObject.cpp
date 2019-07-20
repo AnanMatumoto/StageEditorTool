@@ -1,5 +1,6 @@
 ﻿#include "SpriteObject.h"
 #include "../Lib/Texture/TextureManager.h"
+#include "../Collision/CollisionManager.h"
 
 SpriteObject::SpriteObject(SpriteObjectParameter&data
 ):Object(data.pos.x,
@@ -10,9 +11,11 @@ SpriteObject::SpriteObject(SpriteObjectParameter&data
 		 data.scale_y),
 		m_sprite_name(data.sprite_name)
 {
+	m_drawer = new Drawer();
 }
 
 void SpriteObject::Init() {
+	m_size = { 1,1 };
 }
 
 
@@ -30,4 +33,5 @@ void SpriteObject::Draw() {
 
 SpriteObject::~SpriteObject() {
 
+	delete m_drawer;
 }
