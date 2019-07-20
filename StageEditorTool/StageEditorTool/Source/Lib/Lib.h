@@ -31,7 +31,7 @@ namespace Lib {
 
 	void SetMovePoint(Vec2 &point);
 
-	void SetClickPoint(Vec2 &point);
+	
 
 }
 
