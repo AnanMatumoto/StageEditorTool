@@ -7,7 +7,6 @@
 class MapObject;
 class CollisionObject;
 
-
 class ObjectFactory {
 
 public:
@@ -17,5 +16,7 @@ public:
 	Object* CreateMapObject(MapObjectParameter& param);
 
 	Object* CreateMaouseObject(CollisionObjectParameter& param);
+
+	CollisionObject* CreateResourceObject(CollisionObjectParameter& param);
 };
 

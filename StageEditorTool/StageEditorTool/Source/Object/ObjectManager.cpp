@@ -1,54 +1,75 @@
 ﻿#include "ObjectManager.h"
 #include "../File/File.h"
 #include  "../Factory/ObjectFactory.h"
-#include "../Object/Parameter/CollisionObjectParameter.h"
 #include "../Collision/CollisionDefinition.h"
 #include "../Collision/CollisionManager.h"
+#include "../Object/ResourceObject.h"
 
 void ObjectManager::LoadData(const char* file_name) {
 
-	if (File::InputMapData(file_name, m_map_list) == false)
+	std::vector<CollisionObjectParameter> data_list;
+	//リーソースデータ読み込み
+	if (File::InputResourceData(file_name, data_list) == false)
 	{
 		return;
 	}
 
-	AddObject();
-}
-
-void ObjectManager::AddObject() {
-	
 	ObjectFactory factory;
-	//マウスオブジェクト作成
+	
 	CollisionObjectParameter mouse_param(
+		ObjectType::MOUSE,
 		CollisionType::POINT_TYPE,
 		"",
 		0.f, 0.f
 	);
-	m_object_list.emplace_back(factory.CreateMaouseObject(mouse_param));
-	
-	if (m_map_list.empty()==false) {
-		//マップオブジェクト作成	
-		for (int i = 0; i < m_map_list.size(); ++i) {
-			m_object_list.emplace_back(factory.CreateMapObject(m_map_list[i]));
+	//マウスオブジェクト作成
+	m_object_list.push_back(factory.CreateMaouseObject(mouse_param));
+
+	if (data_list.empty() == false) {
+		//リソースデータ作成	
+		for (int i = 0; i < data_list.size(); ++i) {
+			m_resource_list.push_back(factory.CreateResourceObject(data_list[i]));
 		}
+	}
+}
+
+void ObjectManager::AddRegist(Object* obj) {
+
+	if (obj == nullptr) {
+		return;
+	}
+	m_register_list.push_back(obj);
+}
+
+void ObjectManager::AddObject() {
+
+	for (auto obj : m_register_list) {
+		if (obj == nullptr) {
+			continue;
+		}
+		m_object_list.push_back(obj);
 	}
 }
 
 void ObjectManager::Init() {
 
-	for (auto obj : m_object_list) {
-
-		if (obj == nullptr) {
-			return;
-		}
-		else if (obj->IsDelete() == true) {
+	for (auto resource : m_resource_list) {
+		if (resource == nullptr) {
 			continue;
 		}
-		obj->Init();
+		resource->Init();
 	}
 }
 
 void ObjectManager::Update() {
+
+	AddObject();
+	for (auto resource : m_resource_list) {
+		if (resource == nullptr) {
+			return;
+		}
+		resource->Update();
+	}
 
 	for (auto obj : m_object_list) {
 
@@ -59,6 +80,13 @@ void ObjectManager::Update() {
 }
 
 void ObjectManager::Draw() {
+
+	for (auto resource : m_resource_list) {
+		if (resource == nullptr) {
+			return;
+		}
+		resource->Draw();
+	}
 
 	for (auto obj : m_object_list) {
 
@@ -71,14 +99,14 @@ void ObjectManager::Draw() {
 
 void ObjectManager::Delete() {
 
-	
 	for (auto itr = m_object_list.begin(); itr != m_object_list.end();) {
-		
+		//オブジェクトが削除モードになっている場合		
 		if ((*itr)->IsDelete() == true) {
 			Object* obj = *itr;
 			if (obj != nullptr) {
 				delete obj;
 			}
+			//配列を削除
 			itr = m_object_list.erase(itr);
 			continue;
 		}
@@ -93,5 +121,6 @@ void ObjectManager::AllDelete() {
 			delete obj;
 		}
 	}
+	//リスト内全体の削除
 	m_object_list.clear();
 }

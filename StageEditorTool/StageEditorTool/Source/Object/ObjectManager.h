@@ -2,8 +2,10 @@
 
 #include "Object.h"
 #include "Parameter/MapObjectParameter.h"
-#include "Parameter/SpriteObjectParameter.h"
+#include "Parameter/CollisionObjectParameter.h"
+#include "CollisionObject.h"
 #include <vector>
+
 
 class ObjectManager {
 
@@ -15,7 +17,9 @@ public:
 	}
 
 	void LoadData(const char* file_name);
-	
+
+	void AddRegist(Object* obj);
+
 	void AddObject();
 
 	void Init();
@@ -29,7 +33,8 @@ public:
 	void AllDelete();
 private:
 
+	std::vector<Object*>m_register_list;
 	std::vector<Object*>m_object_list;
-	std::vector<MapObjectParameter>m_map_list;
-	std::vector<SpriteObjectParameter>m_sprite_list;
+	std::vector<CollisionObject*>m_resource_list;
+
 };
