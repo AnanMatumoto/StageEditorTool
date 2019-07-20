@@ -17,26 +17,11 @@ void Editor::Recive(char buff[1024]) {
 	}
 }
 
-void Editor::Update() {
-
-	if (m_drag_object != nullptr) {
-		
-	}
+void Editor::Init(std::string select_sprite_name) {
+	m_select_sprite_name = select_sprite_name;
+	m_drag_object = nullptr;
 }
 
-void Editor::SwapDepth(
-	CollisionObject* select_obj,
-	CollisionObject* map_obj
-) {
-	RectCollider select_rect;
-	RectCollider map_rect;
 
-	select_obj->SetCollider(select_rect);
-	map_obj->SetCollider(map_rect);
 
-	float temp = 0;
-	
-	temp = select_rect.pos.z;
-	select_rect.pos.z = map_rect.pos.z;
-	map_rect.pos.z = temp;
-}
+

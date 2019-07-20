@@ -1,7 +1,10 @@
 ﻿#pragma once
 
 #include "../Object/MapObject.h"
+#include "../Collision/CollisionDefinition.h"
 #include <string>
+
+class MouseObject;
 
 class Editor {
 
@@ -12,10 +15,7 @@ public:
 		return &instance;
 	}
 
-	void Init(std::string select_sprite_name) {
-		m_select_sprite_name = select_sprite_name;
-		m_drag_object = nullptr;
-	}
+	void Init(std::string select_sprite_name);
 
 	void Recive(char buff[1024]);
 
@@ -31,13 +31,11 @@ public:
 		m_drag_object = obj;
 	}
 
-	void SwapDepth(
-		CollisionObject* select_obj,
-		CollisionObject* map_obj);
 
-	void Update();
+	//void Update();
 
 private:
-	std::string m_select_sprite_name;
-	MapObject* m_drag_object;
+	std::string  m_select_sprite_name;
+	MapObject*   m_drag_object;
+	Vec2		 m_pos;
 };
