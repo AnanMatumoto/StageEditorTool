@@ -1,41 +1,56 @@
 ﻿#include "CollisionManager.h"
 #include "../Object/CollisionObject.h"
+#include "../Object/SpriteObject.h"
 #include "../Common/Common.h"
 #include "../Calc/Calc.h"
 #include "../Editor/Editor.h"
+#include "../Collision/CollisionDefinition.h"
 #include <cmath>
 
 void CollisionManager::Entry(CollisionObject* obj) {
 
-	if (obj->GetColliisionType() == POINT_TYPE) {
+	switch (obj->GetObjectType())
+	{
+	case RESOURCE:
+		m_resource_list.push_back(obj);
+		break;
+	case MAP:
+		m_obj_list.push_back(obj);
+		break;
+	case MOUSE:
 		m_mouse_obj = obj;
-	}
-	else {
-		m_obj_list.emplace_back(obj);
+		break;
 	}
 	m_select_obj = nullptr;
 }
 
 void CollisionManager::Update() {
 
+
+	for (auto resource : m_resource_list) {
+		IsPointDuringRect(m_mouse_obj, resource);
+	}
+
+	
 	for (auto obj : m_obj_list) {
 
 		if (obj == nullptr) {
 			continue;
 		}
+
+		//点と矩形の当たり
+		
 		if (m_select_obj != nullptr) {
 			if (m_select_obj->GetSelect()) {
 				break;
 			}
-		}
+		}	
 
-		//点と矩形の当たり
-		if (IsPointDuringRect(m_mouse_obj, obj)==true) {
+		if (IsPointDuringRect(m_mouse_obj, obj) == true) {
 			m_select_obj = Editor::GetInstance()->GetDragObject();
 		}
-		
-		
 	}
+
 	
 	if (m_select_obj != nullptr) {
 		for (auto rect : m_obj_list) {
@@ -46,6 +61,8 @@ void CollisionManager::Update() {
 			IsOverlapRect(m_select_obj, rect);
 		}
 	}
+
+
 }
 
 bool CollisionManager::IsPointDuringRect(
@@ -54,7 +71,7 @@ bool CollisionManager::IsPointDuringRect(
 ) {
 	PointCollider point;
 	RectCollider  rect;
-	
+
 	if (point_obj == nullptr || rect_obj == nullptr) {
 		return false;
 	}
@@ -103,4 +120,5 @@ void CollisionManager::IsOverlapRect(
 
 void CollisionManager::Clear() {
 	m_obj_list.clear();
+
 }

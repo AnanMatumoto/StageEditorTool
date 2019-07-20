@@ -1,11 +1,12 @@
 ﻿#pragma once
 
-#include "../Collision/CollisionDefinition.h"
 #include "../Common/Vec.h"
 #include <map>
 #include <vector>
 
 class CollisionObject;
+class ResourceObject;
+class SpriteObject;
 
 class CollisionManager {
 
@@ -35,6 +36,7 @@ public:
 private:
 
 	std::vector<CollisionObject*>m_obj_list;
+	std::vector<CollisionObject*>m_resource_list;
 	CollisionObject* m_mouse_obj;
 	CollisionObject* m_select_obj;
 	bool m_is_select;
